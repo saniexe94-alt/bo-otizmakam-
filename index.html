@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ساڵیادی ناسینمان</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#e8c987; --gold2:#b8924a; --bg:#070b17; --bg2:#0d1428;
+  --text:#e9e6df; --muted:#a9a79f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Vazirmatn','Segoe UI',Tahoma,sans-serif;
+  background:radial-gradient(ellipse at top,#121a36 0%,var(--bg) 60%);
+  background-attachment:fixed;
+  color:var(--text); line-height:2.1; overflow-x:hidden;
+}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+section{position:relative;z-index:1;padding:110px 7vw;max-width:1100px;margin:auto}
+.gold-text{
+  background:linear-gradient(120deg,#fff3d0,var(--gold),var(--gold2),#fff3d0);
+  background-size:250% auto;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:shine 6s linear infinite;
+}
+@keyframes shine{to{background-position:250% center}}
+h2.title{font-size:clamp(1.8rem,4vw,2.8rem);text-align:center;font-weight:800;margin-bottom:12px}
+.divider{width:140px;height:2px;margin:0 auto 55px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+/* intro */
+#intro{
+  position:fixed;inset:0;z-index:100;background:radial-gradient(circle,#141d3b,#050810);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:30px;transition:opacity 1.4s ease,visibility 1.4s;
+}
+#intro.hide{opacity:0;visibility:hidden}
+#intro .small{color:var(--muted);letter-spacing:2px;margin-bottom:18px}
+#intro h1{font-size:clamp(2rem,6vw,3.6rem);font-weight:800;margin-bottom:12px}
+#intro p{max-width:520px;color:var(--muted);margin-bottom:40px}
+.btn{
+  cursor:pointer;border:1px solid var(--gold);background:transparent;color:var(--gold);
+  padding:14px 46px;font-family:inherit;font-size:1.1rem;border-radius:50px;
+  transition:.4s;position:relative;overflow:hidden
+}
+.btn:hover{background:var(--gold);color:#111;box-shadow:0 0 40px rgba(232,201,135,.45)}
+
+/* hero */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.crest{font-size:3rem;margin-bottom:10px;color:var(--gold);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+#hero .kicker{color:var(--muted);letter-spacing:3px;font-size:1rem}
+#hero h1{font-size:clamp(2.4rem,8vw,5.2rem);font-weight:800;line-height:1.5;margin:10px 0}
+#hero .sub{font-size:clamp(1.05rem,2.3vw,1.4rem);color:var(--muted);max-width:700px}
+.scroll{margin-top:60px;color:var(--gold);animation:float 2.5s infinite;font-size:.95rem}
+
+/* counter */
+.counter{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px;margin-top:20px}
+.cbox{
+  border:1px solid rgba(232,201,135,.3);border-radius:20px;padding:28px 10px;text-align:center;
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));backdrop-filter:blur(6px)
+}
+.cbox b{display:block;font-size:2.6rem;color:var(--gold);font-weight:800;line-height:1.3}
+.cbox span{color:var(--muted);font-size:.95rem}
+.counter-note{text-align:center;color:var(--muted);margin-top:28px}
+
+/* letter */
+.letter{
+  background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+  border:1px solid rgba(232,201,135,.25);border-radius:26px;padding:clamp(24px,5vw,64px);
+  box-shadow:0 30px 80px rgba(0,0,0,.45)
+}
+.letter p{margin-bottom:24px;font-size:1.12rem;text-align:justify}
+.letter p.first::first-letter{font-size:2.6rem;color:var(--gold);font-weight:800}
+.sign{text-align:left;color:var(--gold);font-size:1.3rem;margin-top:40px}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.card{
+  padding:36px 30px;border-radius:22px;border:1px solid rgba(232,201,135,.22);
+  background:linear-gradient(170deg,rgba(255,255,255,.055),rgba(255,255,255,.01));
+  transition:.5s;position:relative;overflow:hidden
+}
+.card:hover{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 20px 60px rgba(232,201,135,.12)}
+.card .ico{font-size:2rem;color:var(--gold);margin-bottom:10px}
+.card h3{font-size:1.35rem;margin-bottom:10px;color:#fff}
+.card p{color:var(--muted);font-size:1rem}
+
+/* timeline */
+.timeline{position:relative;padding-right:40px}
+.timeline::before{content:"";position:absolute;right:11px;top:0;bottom:0;width:2px;background:linear-gradient(var(--gold),transparent)}
+.tl{position:relative;margin-bottom:46px}
+.tl::before{
+  content:"";position:absolute;right:-37px;top:10px;width:16px;height:16px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 20px var(--gold)
+}
+.tl .when{color:var(--gold);font-weight:600;letter-spacing:1px}
+.tl h3{font-size:1.3rem;margin:2px 0 6px}
+.tl p{color:var(--muted)}
+
+/* promises */
+.promises{list-style:none;counter-reset:p}
+.promises li{
+  counter-increment:p;position:relative;padding:22px 80px 22px 24px;margin-bottom:16px;
+  border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(232,201,135,.15);transition:.4s
+}
+.promises li:hover{background:rgba(232,201,135,.07);transform:translateX(-8px)}
+.promises li::before{
+  content:counter(p);position:absolute;right:22px;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-weight:800
+}
+
+/* quote */
+.quote{
+  text-align:center;font-size:clamp(1.3rem,3vw,2rem);font-weight:300;line-height:2.1;
+  padding:50px 20px;position:relative
+}
+
+/* finale */
+#finale{text-align:center;padding-bottom:160px}
+#finale p{max-width:760px;margin:0 auto 22px;font-size:1.15rem;color:#ddd9cf}
+.heart{font-size:3.4rem;color:var(--gold);animation:beat 1.8s infinite;display:inline-block;margin-top:20px}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.show{opacity:1;transform:none}
+
+/* music button */
+#music{
+  position:fixed;bottom:22px;left:22px;z-index:50;width:54px;height:54px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(7,11,23,.8);color:var(--gold);font-size:1.3rem;
+  cursor:pointer;backdrop-filter:blur(8px);transition:.3s
+}
+#music:hover{background:var(--gold);color:#111}
+#music.playing{animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,201,135,.5)}100%{box-shadow:0 0 0 22px rgba(232,201,135,0)}}
+footer{position:relative;z-index:1;text-align:center;color:var(--muted);padding:30px;font-size:.9rem;border-top:1px solid rgba(232,201,135,.12)}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="small">✦ ✦ ✦</div>
+  <h1 class="gold-text">شتێکی تایبەت بۆ تۆ</h1>
+  <p>ئەم لاپەڕەیە بە هەموو دڵەوە نووسراوە. ئەگەر دەتەوێت بە باشترین شێوە ببینیت، دەنگی مۆبایل یان کۆمپیوتەرەکەت بکەرەوە.</p>
+  <button class="btn" id="enter">کردنەوە ✦</button>
+</div>
+
+<!-- MUSIC BUTTON -->
+<button id="music" title="مۆسیقا">♪</button>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="crest">❖</div>
+  <div class="kicker">ساڵیادی ناسینمان</div>
+  <h1 class="gold-text">بۆ خوشکە بەنرخەکەم<br><span id="herName">ناوی ئەو</span></h1>
+  <p class="sub">هەندێک پەیوەندی ناوی خۆیان نییە، بەڵام شوێنی خۆیان لە دڵدا هەیە. ئەمەش پەیوەندی من و تۆیە.</p>
+  <div class="scroll">▼ بەرەو خوارەوە بڕۆ</div>
+</section>
+
+<!-- COUNTER -->
+<section>
+  <h2 class="title gold-text rv">کاتێک کە لەگەڵ یەکترداین</h2>
+  <div class="divider"></div>
+  <div class="counter rv">
+    <div class="cbox"><b id="cy">0</b><span>ساڵ</span></div>
+    <div class="cbox"><b id="cd">0</b><span>ڕۆژ</span></div>
+    <div class="cbox"><b id="ch">0</b><span>کاتژمێر</span></div>
+    <div class="cbox"><b id="cm">0</b><span>خولەک</span></div>
+    <div class="cbox"><b id="cs">0</b><span>چرکە</span></div>
+  </div>
+  <p class="counter-note rv">ئەم ژمارانە هەر چرکەیەک زیاد دەبن، وەک چۆن ڕێزم بۆ تۆ هەموو ڕۆژێک زیاد دەبێت.</p>
+</section>
+
+<!-- LETTER -->
+<section>
+  <h2 class="title gold-text rv">نامەیەک بۆ خوشکێک</h2>
+  <div class="divider"></div>
+  <div class="letter">
+    <p class="rv first">خوشکە بەڕێزەکەم، ئەمڕۆ تەنها ڕۆژێکی ئاسایی نییە لە ساڵنامەدا. ئەمڕۆ ساڵیادی ئەو ڕۆژەیە کە ڕێگای من و تۆ یەکیان گرتەوە. لەو ڕۆژەدا هیچ کامیان نەمانزانی ئەو ناسینە ئاسایییە دەبێتە یەکێک لە جوانترین بەشەکانی ژیانم.</p>
+    <p class="rv">لەم ژیانەدا هەندێک کەس بە خوێن دەبنە خزم و هەندێکیش بە دڵ. ئێمە لە دووەمیانین. هیچ یاسایەک ئێمەی بەیەکەوە نەبەستووەتەوە، بەڵام ڕاستگۆیی، متمانە و ئەو ئارامییەی لە هەبوونی یەکتر هەستی پێ دەکەین، لە زۆر بەستنەوەی دیکە بەهێزترە. ئەو پەیوەندییانەی بە ناچاری دروست دەبن ڕەنگە بمێنن، بەڵام ئەوانەی بە هەڵبژاردن دروست دەبن، وەک ئەوەی ئێمە هەڵمانبژاردووە، بەنرخترن.</p>
+    <p class="rv">من و تۆ وەک خوشک و برا ناسراوین، وەک دوو کەسی سەربەخۆ، کە هەریەکەمان ڕێگای خۆی هەیە و خەونی خۆی. کەچی لە هەر ڕێگایەکدا بین، دەزانین پشتێکی دڵنیامان هەیە. ئەم دڵنیاییە لە ئەمڕۆدا کەمتر بەدی دەکرێت. لە سەردەمێکدا کە زۆرێک لە پەیوەندییەکان بە قازانج و کات دەپێورێن، ئێمە بێ هیچ چاوەڕوانییەک لە تەنیشت یەکترین.</p>
+    <p class="rv">لە تۆدا شتێکم دۆزیوەتەوە کە زۆر بە دەگمەن لە مرۆڤدا دەبینرێت: گوێگرتن بێ دادوەری. کاتێک قسەم کردووە، تۆ تەنها گوێت نەگرتووە بۆ ئەوەی وەڵام بدەیتەوە، بەڵکو گوێت گرتووە بۆ ئەوەی تێم بگەیت. کاتێک هەڵەم کردووە، سەرزەنشتت نەکردووم بەڵکو ڕاستییەکەت بە نەرمی پێ وتووم. ئەمەش جیاوازی نێوان هاوڕێیەکی ئاسایی و خوشکێکی ڕاستەقینەیە.</p>
+    <p class="rv">هەندێک ڕۆژ ژیان قورس دەبێت. ئەو ڕۆژانە هەموو شتێک لە دەوروبەرم دەگۆڕێت، بەڵام هەبوونی تۆ وەک چرایەکی بچووک بووە لە ژوورێکی تاریکدا. ڕەنگە هەمیشە نەزانیبێتیت چەندە یارمەتیت داوم، چونکە هەندێک جار تەنها ئەوەندە بەسە کە یەکێک بڵێت "من لێرەم". تۆ ئەو ڕستەیەت هەمیشە بە کردەوە وتووە، نەک تەنها بە وشە.</p>
+    <p class="rv">ئەگەر ئەمڕۆ بۆ ساڵێک بگەڕێمەوە دواوە، دەبینم چەند شت گۆڕاوە. ئێمەش گۆڕاوین، گەورەتر بووین، ئەزموونمان زیاتر بووە، و لە هەموو ئەو گۆڕانکارییانەدا شتێک نەگۆڕاوە، ئەویش ڕێزی نێوانمانە. من پێم وایە پەیوەندییەکی ڕاستەقینە ئەوە نییە کە هەرگیز نەگۆڕێت، بەڵکو ئەوەیە کە لەگەڵ گۆڕانی هەردوولا گەشە بکات.</p>
+    <p class="rv">دەمەوێت ئەمڕۆ سوپاست بکەم. بۆ ئەو کاتانەی کە بێ ئەوەی بپرسم هاتیت. بۆ ئەو قسانەی کە بێ ئەوەی داوا بکەم گوتت. بۆ ئەو بێدەنگییانەی کە باشترین وەڵام بوون. بۆ ئەو پێکەنینانەی کە ڕۆژێکی قورسیان کرد بە ڕۆژێکی سووک. بۆ ئەوەی کە وەک خۆت بووی، بێ ماسک و بێ خۆ پیشاندان.</p>
+    <p class="rv">هیوادارم تۆش هەمیشە هەست بکەیت کە لە من نزیکیت، چ لێرە بین و چ لە دووری. ڕێگا و شار و کات دەتوانن مرۆڤەکان لێک دوور بخەنەوە، بەڵام ئەوانەی بە ڕاستی یەکتر دەناسن، دوور نابنەوە. هەر کاتێک پێویستت بە من بوو، بزانە دەرگام بۆ تۆ کراوەیە، بێ کات و بێ مەرج.</p>
+    <p class="rv">ئەمە تەنها لاپەڕەیەکی ئینتەرنێتی نییە. بەڵگەیەکە لەسەر ئەوەی کە ناسینی تۆ لە ژیانمدا دەستکەوتێکی گەورەیە، و من هەرگیز وەک شتێکی ئاسایی سەیری ناکەم. ساڵیادت پیرۆز بێت، خوشکە شیرینەکەم.</p>
+    <div class="sign rv">لەگەڵ ڕێز و خۆشەویستییەکی بێ سنوورەوە،<br><span id="myName">ناوی تۆ</span> ✦</div>
+  </div>
+</section>
+
+<!-- WHAT YOU ARE -->
+<section>
+  <h2 class="title gold-text rv">تۆ بۆ من چیت؟</h2>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="card rv"><div class="ico">✦</div><h3>پشتیوانێکی دڵسۆز</h3><p>کاتێک هەموو دەرگایەک داخرا، تۆ ئەو کەسە بوویت کە بێ ئەوەی بانگ بکرێت هات. پشتیوانی ڕاستەقینە لە کاتی تەنگانەدا دەردەکەوێت و تۆ لەو تاقیکردنەوەیەدا سەرکەوتوویت.</p></div>
+    <div class="card rv"><div class="ico">❖</div><h3>ئاوێنەیەکی ڕاستگۆ</h3><p>ئەوەی دەیبینیت پێم دەڵێیت، بە نەرمی و بە ڕێزەوە. ڕاستگۆییت بۆ من لە هەزار پەسندکردنی درۆینە بەنرخترە.</p></div>
+    <div class="card rv"><div class="ico">☾</div><h3>ئارامییەکی بێ دەنگ</h3><p>هەندێک کەس هەبوونیان خۆی ئارامییە. لەگەڵ تۆدا هەست بە پێویستی خۆ ڕاگرتن ناکەم. دەتوانم هەر ئەوەی هەم بم.</p></div>
+    <div class="card rv"><div class="ico">✧</div><h3>هاوبەشی خۆشی</h3><p>خۆشییەکان لەگەڵ تۆ مانایەکی زیاتر دەگرن. سەرکەوتنەکانم بە دڵخۆشی تۆ تەواو دەبن و ئەمەش نیشانەی دڵێکی بێ حەسوودییە.</p></div>
+    <div class="card rv"><div class="ico">❂</div><h3>خاوەنی متمانە</h3><p>ئەو نهێنییانەی بۆ تۆم گێڕاوەتەوە، لای تۆ ئاسوودەن. متمانە لە ساڵێکدا دروست ناکرێت، بەڵکو لە چەندین ساتی بچووکدا و تۆ هەموویانت بەدەست هێنا.</p></div>
+    <div class="card rv"><div class="ico">❀</div><h3>ڕووناکییەکی نەرم</h3><p>تۆ ئەو کەسەیت کە بێ دەنگەدەنگ ژیانی کەسانی دەوروبەرت جوانتر دەکەیت. نەرمییەکەت لاوازی نییە، بەڵکو بەهێزترین جۆری هێزە.</p></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <h2 class="title gold-text rv">ڕێگاکەی ئێمە</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="tl rv"><div class="when">سەرەتا</div><h3>ڕۆژی ناسینمان</h3><p>دوو کەسی نامۆ، بێ ئەوەی بزانن ئەم قسەکردنە ئاسایییە دەبێتە سەرەتای پەیوەندییەکی قووڵ. هیچ پلانێک نەبوو، تەنها چارەنووسێک کە ڕێگای یەکتری نیشان دا.</p></div>
+    <div class="tl rv"><div class="when">هەنگاوی یەکەم</div><h3>یەکەم متمانە</h3><p>کاتێک یەکەمجار شتێکی تایبەتمان بۆ یەکتر گێڕایەوە، هەردووکمان زانیمان ئەمە لە قسەی ئاسایی زیاترە.</p></div>
+    <div class="tl rv"><div class="when">لە ناوەڕاستدا</div><h3>ڕۆژە قورسەکان</h3><p>ڕۆژانێک هەبوون کە یەکترمان لە هەموو کاتێک زیاتر پێویست بوو. لەوێدا بۆمان دەرکەوت پەیوەندییەکەمان تەنها لە ڕۆژە خۆشەکاندا نییە.</p></div>
+    <div class="tl rv"><div class="when">گەشەکردن</div><h3>فێربوون لە یەکتر</h3><p>لە تۆ فێربووم چۆن سەبر بکەم، چۆن بەخشندە بم، و چۆن لە ئاستی وشەکانمدا بەرپرسیار بم.</p></div>
+    <div class="tl rv"><div class="when">ئەمڕۆ</div><h3>ساڵیاد</h3><p>ئەمڕۆ لەسەر ئەم لاپەڕەیە ڕادەوەستین بۆ ئەوەی بڵێین: سوپاس بۆ هەموو ئەوەی هەبووە، و بەڵێن بۆ هەموو ئەوەی دێت.</p></div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="quote rv gold-text">"هاوڕێیەتی ڕاستەقینە ئەوە نییە کە هەموو ڕۆژێک یەکتر ببینن، بەڵکو ئەوەیە کە ئەگەر ساڵێکیش نەیبینیت، کاتێک دەیبینیتەوە هیچ نەگۆڕاوە."</div>
+</section>
+
+<!-- PROMISES -->
+<section>
+  <h2 class="title gold-text rv">بەڵێنەکانم بۆ تۆ</h2>
+  <div class="divider"></div>
+  <ul class="promises">
+    <li class="rv">هەمیشە ڕاستگۆ دەبم لەگەڵت، تەنانەت کاتێک ڕاستییەکە ئاسان نەبێت.</li>
+    <li class="rv">لە کاتی قورسیدا لە تەنیشتت دەبم، نەک تەنها لە کاتی خۆشیدا.</li>
+    <li class="rv">نهێنییەکانت وەک ئەمانەتێک دەپارێزم و هەرگیز بە کەسی نادەم.</li>
+    <li class="rv">لە پشتەوەی تۆ بە باشی قسە دەکەم، وەک چۆن لە ڕووبەڕووت دەیکەم.</li>
+    <li class="rv">بۆ خەون و ئامانجەکانت دەبمە هاندەر، نەک ڕێگر.</li>
+    <li class="rv">ئەگەر هەڵەیەکم کرد، بێ فز و بێ بیانوو داوای لێبوردن دەکەم.</li>
+    <li class="rv">لە دووری و لە نزیکی، ڕێزی نێوانمان وەک خۆی دەپارێزم.</li>
+    <li class="rv">هەمیشە لە دوعاکانمدا یادت دەکەمەوە و باشترین شت بۆ تۆ دەخوازم.</li>
+  </ul>
+</section>
+
+<!-- WISHES -->
+<section>
+  <h2 class="title gold-text rv">ئاواتەکانم بۆ تۆ</h2>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="card rv"><h3>تەندروستی</h3><p>هیوادارم جەستە و ڕۆحت هەمیشە سەلامەت بن، چونکە هەموو خەونێک پێویستی بە دڵێکی ساغ و بەهێز هەیە.</p></div>
+    <div class="card rv"><h3>سەرکەوتن</h3><p>هیوادارم هەر هەنگاوێک بنێیت بەرەو ئامانجەکانت بچێت، و هەر ماندووبوونێک بە دەستکەوتێکی شایستە ببڕدرێتەوە.</p></div>
+    <div class="card rv"><h3>ئارامی</h3><p>هیوادارم لەناو هەموو خێرایی و شلەژانی ژیاندا شوێنێکی ئارامی بۆ دڵت هەبێت.</p></div>
+    <div class="card rv"><h3>کەسانی باش</h3><p>هیوادارم هەمیشە لەگەڵ کەسانێک بیت کە ئەو بەهایەت پێ دەدەن کە شایانیت.</p></div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section id="finale">
+  <h2 class="title gold-text rv">وشەی کۆتایی</h2>
+  <div class="divider"></div>
+  <p class="rv">ژیان وانەی زۆرمان فێر دەکات، بەڵام گرنگترینیان ئەوەیە کە بزانین کێ بە ڕاستی لە تەنیشتمانە. من ئەمڕۆ بە دڵنیاییەوە دەتوانم بڵێم یەکێک لەو کەسانە تۆیت.</p>
+  <p class="rv">ئەگەر ساڵانی داهاتوو بە سەدان ڕۆژی دیکە زیاد بن، من هەر ئەو کەسەم کە ئەمڕۆ هەم: خوشک و براکەت کە بە دڵ هەڵتبژاردووە و بە دڵ دەتپارێزێت.</p>
+  <p class="rv">ساڵیادی ناسینمان پیرۆز بێت. هیوادارم ئەم پەیوەندییە بە پاکی و بە ڕێز بۆ هەمیشە بمێنێتەوە.</p>
+  <div class="heart rv">♥</div>
+</section>
+
+<footer>دروستکراوە بە هەموو خۆشەویستییەکی خوشکایەتی و برایەتییەوە ✦ <span id="yr"></span></footer>
+
+<script>
+/* ============ ڕێکخستنەکان: ئەمانە بگۆڕە ============ */
+const HER_NAME = "ناوی ئەو";              // ناوی خوشکەکەت
+const MY_NAME  = "ناوی تۆ";              // ناوی خۆت
+const START_DATE = "2025-11-11T00:00:00"; // ڕۆژی ناسینتان (ساڵ-مانگ-ڕۆژ)
+/* ===================================================== */
+
+document.getElementById('herName').textContent = HER_NAME;
+document.getElementById('myName').textContent  = MY_NAME;
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------- counter ---------- */
+const start = new Date(START_DATE).getTime();
+function tick(){
+  const diff = Math.max(0, Date.now() - start);
+  const s = Math.floor(diff/1000);
+  const y = Math.floor(s/31556952);
+  const d = Math.floor((s % 31556952)/86400);
+  const h = Math.floor((s % 86400)/3600);
+  const m = Math.floor((s % 3600)/60);
+  const sec = s % 60;
+  document.getElementById('cy').textContent = y;
+  document.getElementById('cd').textContent = d;
+  document.getElementById('ch').textContent = h;
+  document.getElementById('cm').textContent = m;
+  document.getElementById('cs').textContent = sec;
+}
+tick(); setInterval(tick,1000);
+
+/* ---------- stars ---------- */
+const cv = document.getElementById('stars'), c2 = cv.getContext('2d');
+let W,H,stars=[];
+function resize(){
+  W=cv.width=innerWidth; H=cv.height=innerHeight;
+  stars=Array.from({length:Math.floor(W*H/6500)},()=>({
+    x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,
+    a:Math.random(),v:Math.random()*.012+.003,dy:Math.random()*.15+.02
+  }));
+}
+addEventListener('resize',resize); resize();
+(function draw(){
+  c2.clearRect(0,0,W,H);
+  for(const s of stars){
+    s.a+=s.v; s.y+=s.dy*.2; if(s.y>H){s.y=0;s.x=Math.random()*W}
+    const o=.35+Math.abs(Math.sin(s.a))*.65;
+    c2.beginPath(); c2.arc(s.x,s.y,s.r,0,6.283);
+    c2.fillStyle='rgba(232,201,135,'+o+')'; c2.fill();
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ---------- reveal on scroll (fixed) ---------- */
+const rvEls = document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  },{threshold:0, rootMargin:'0px 0px -6% 0px'});
+  rvEls.forEach(el=>io.observe(el));
+}
+// safety net: if anything is still hidden after 3 seconds, show it
+setTimeout(()=>rvEls.forEach(el=>el.classList.add('show')),3000);
+
+/* ---------- music: generated live, no files needed ---------- */
+let ctx, bus, playing=false, timer, nextT=0, step=0;
+const chords=[
+  {b:110.00, n:[220.00,261.63,329.63,440.00]},   // Am
+  {b:87.31,  n:[174.61,220.00,261.63,349.23]},   // F
+  {b:130.81, n:[261.63,329.63,392.00,523.25]},   // C
+  {b:98.00,  n:[196.00,246.94,293.66,392.00]}    // G
+];
+const melody=[659.25,587.33,523.25,493.88,440.00,392.00,523.25,587.33];
+
+function setupAudio(){
+  ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const master = ctx.createGain(); master.gain.value = .5; master.connect(ctx.destination);
+  bus = ctx.createGain(); bus.gain.value = .8; bus.connect(master);
+  const dl = ctx.createDelay(); dl.delayTime.value = .42;
+  const fb = ctx.createGain(); fb.gain.value = .38;
+  const lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=2600;
+  bus.connect(dl); dl.connect(lp); lp.connect(fb); fb.connect(dl); lp.connect(master);
+}
+function tone(f,t,dur,vol,type,attack){
+  type = type || 'triangle'; attack = attack || .015;
+  [-4,4].forEach(det=>{
+    const o=ctx.createOscillator(), g=ctx.createGain();
+    o.type=type; o.frequency.value=f; o.detune.value=det;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(vol,t+attack);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    o.connect(g); g.connect(bus); o.start(t); o.stop(t+dur+.1);
+  });
+}
+function playStep(i,t){
+  const ch = chords[Math.floor(i/8)%4], k=i%8;
+  if(k===0){
+    tone(ch.b,t,4,.22,'sine',.05);
+    ch.n.slice(0,3).forEach(f=>tone(f/2,t,4,.05,'sine',.8));
+  }
+  const arp=[0,1,2,3,2,1,2,3];
+  tone(ch.n[arp[k]],t,1.6,.11,'triangle');
+  if(k%2===0 && Math.random()>.35){
+    const m=melody[(Math.floor(i/2)+Math.floor(Math.random()*3))%melody.length];
+    tone(m,t+.02,2.2,.075,'sine',.03);
+  }
+}
+function sched(){
+  while(nextT < ctx.currentTime+.4){ playStep(step,nextT); nextT+=.55; step++; }
+}
+const music=document.getElementById('music');
+function playMusic(){
+  if(!ctx){ setupAudio(); }
+  ctx.resume(); nextT = ctx.currentTime+.1;
+  clearInterval(timer); timer=setInterval(sched,120);
+  playing=true; music.classList.add('playing'); music.textContent='♪';
+}
+function pauseMusic(){
+  clearInterval(timer); if(ctx) ctx.suspend();
+  playing=false; music.classList.remove('playing'); music.textContent='✕';
+}
+music.onclick=()=> playing?pauseMusic():playMusic();
+
+document.getElementById('enter').onclick=()=>{
+  document.getElementById('intro').classList.add('hide');
+  playMusic();
+};
+</script>
+</body>
+</html>
+
